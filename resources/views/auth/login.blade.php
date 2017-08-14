@@ -1,68 +1,40 @@
 @extends('layouts.auth')
 
+
 @section('content')
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic' rel='stylesheet' type='text/css'>
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+  <div class="signup">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+   <img src="{{ asset('imgs/logo-dark.png') }}" class="logo">
+      
+    <h3>Continue organising your fleet company.<br><span> Seamless integration of your business.</span></h3>
+    <div class="socialSignup">
+      <a href="#" class="fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign In with Google</a>
+      <a href="#" class="fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign In with Facebook</a>
     </div>
+    <span class="signupDivider">or Sign in with your email address</span>
+    <!-- <span class="divider"></span> -->
+    <form class="signupForm" method="POST" action="{{ route('login') }}">
+    @if ($errors->any())
+                    <ul class="errorMessages">
+                        @foreach ($errors->all() as $error)
+                            <li><span>{{ $error }}</span></li>
+                        @endforeach
+                    </ul>
+                @endif 
+      {{ csrf_field() }}
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="password"  placeholder="Password">
+      <span class="promoLabel">Don't have an account? <a href="{{ route('register') }}">Create New Account</a>.</span>
+     <!-- <input type="text" class="promocode" placeholder="Promo code"> -->
+      <button type="submit" class="signupBtn">Sign In</button>
+      <span class="terms">By clicking Sign Up, I agree to the <a href="#">Membership Conditions</a> and the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</span>
+    </form>
+     
+  </div>
 </div>
+
+
 @endsection

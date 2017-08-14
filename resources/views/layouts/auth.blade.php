@@ -11,22 +11,25 @@
     <title>TDrive</title>
     
      <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/auth.css') }}" rel="stylesheet">
+
+    <script src="/js/modernizr-custom.js"></script>
 </head>
 <body>
 
     <div id="app">
-         <div class="sign-in-wrapper">
+       
 
             @include('flash::message')
+
                 
 
                        @yield('content')
 
                     
 
-                </div>
             
         
     </div>
@@ -34,6 +37,8 @@
         
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+ 
 
 </body>
 </html>
