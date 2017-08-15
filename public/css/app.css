@@ -8592,7 +8592,7 @@ Layout
   width: 240px;
   margin-left: -240px;
   color: rgba(255, 255, 255, 0.5);
-  background-color: #2e3e4e;
+  background-color: #1b1b1b;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   -webkit-transition: all .299s;
   transition: all .299s;
@@ -14431,14 +14431,23 @@ landing page
   }
 }
 
-/* .ui-header--green {
-    background-color: #db4437 !important;
-} */
+.ui-aside {
+  background-color: #1b1b1b;
+}
+
+.ui-header--green {
+  background-color: #009688 !important;
+}
+
+.nav .active {
+  background-color: rgba(255, 255, 255, 0.065);
+}
 
 .tdrive-alert {
   position: fixed;
-  bottom: 20px;
+  top: 60px;
   right: 20px;
+  z-index: 1000;
 }
 
 @media (max-width: 767px) {

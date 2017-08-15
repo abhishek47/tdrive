@@ -39,7 +39,7 @@ class CompaniesController extends Controller
 
     public function edit()
     {
-    	$company = auth()->user()->company;
+       $company = auth()->user()->company;
        return view('company.edit', compact('company'));
     }
 

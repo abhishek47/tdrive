@@ -12,7 +12,7 @@
                 <button class="Message__status Message__status--read" type="button" name="button"></button>
                 <a href="">
                     <div class="Message__avatar Message__avatar--danger pull-left" href="">
-                        <img src="imgs/avatar.png" alt="...">
+                        <img src="{{ asset('imgs/avatar.png') }}" alt="...">
                     </div>
                     <div class="Message__highlight">
                         <span class="Message__highlight-name">Lubida Teresa</span>

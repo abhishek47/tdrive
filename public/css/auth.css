@@ -88,7 +88,7 @@ a {
 
 /* Normal Signup */
 
-.signupForm input {
+.signupForm input, .signupForm select {
   width: 100%;
   padding: 15px;
   margin-bottom: 10px;
@@ -99,6 +99,11 @@ a {
   -webkit-font-smoothing: antialiased;
   color: #444;
 }
+
+ .signupForm select {
+    height: 50px;
+    background-color: #fff;
+ }
 
 .signupForm input.half {
   width: 50%;

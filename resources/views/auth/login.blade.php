@@ -11,8 +11,8 @@
       
     <h3>Continue organising your fleet company.<br><span> Seamless integration of your business.</span></h3>
     <div class="socialSignup">
-      <a href="#" class="fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign In with Google</a>
-      <a href="#" class="fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign In with Facebook</a>
+      <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign In with Google</a>
+      <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign In with Facebook</a>
     </div>
     <span class="signupDivider">or Sign in with your email address</span>
     <!-- <span class="divider"></span> -->

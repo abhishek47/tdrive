@@ -21,7 +21,7 @@
 
 
 </head>
-<body>
+<body class="body-light">
 
     <div id="app">
         <div id="ui" class="ui">

@@ -9,7 +9,7 @@
 
     <img src="{{ asset('imgs/logo-dark.png') }}" class="logo">
 
-    <h3><span> Begin with adding your business info here.</span></h3>
+    <h3><b>{{ auth()->user()->name }} - </b><small>{{ auth()->user()->email }}</small><br><span> Begin with adding your business info here.</span></h3>
     
     <span class="signupDivider">This information is used in various places like invoices.</span>
     <!-- <span class="divider"></span> -->
