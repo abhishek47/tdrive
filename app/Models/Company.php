@@ -15,4 +15,8 @@ class Company extends Model
         'name', 'email', 'user_id', 'address', 'country', 'city', 'state', 'zip', 'phones', 'website'
     ];
 
+    public function getLogoAttribute($logo)
+    {
+    	return isset($logo) ? asset('/storage/' . $logo) : asset('imgs/logo-dark.png');
+    }
 }

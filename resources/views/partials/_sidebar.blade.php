@@ -1,5 +1,5 @@
  <!--sidebar start-->
-            <aside id="aside" class="ui-aside" style="min-height: 2000px;">
+            <aside id="aside" class="ui-aside" style="">
                 <ul class="nav" ui-nav>
                     <li class="nav-head">
                         <h5 class="nav-title text-uppercase light-txt">Navigation</h5>

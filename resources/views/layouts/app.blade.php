@@ -34,17 +34,15 @@
 
             <!--main content start-->
             <div id="content" class="ui-content">
-                <div class="ui-content-body">
+                
 
-                    <div class="ui-container">
+                 @yield('content')
 
-                       @yield('content')
-
-                    </div>
+                   
 
                    @include('partials._sidebar__right')
 
-                </div>
+               
             </div>
             <!--main content end-->
 
@@ -62,6 +60,7 @@
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     </script>
 
+    @yield('js')
         
 
 </body>

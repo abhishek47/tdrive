@@ -14450,6 +14450,19 @@ landing page
   z-index: 1000;
 }
 
+.upload-image {
+  width: 100px;
+  height: 80px;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.page-head-wrap {
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+}
+
 .form-control {
   display: block;
   width: 100%;

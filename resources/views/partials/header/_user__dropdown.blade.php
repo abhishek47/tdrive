@@ -8,7 +8,7 @@
         <span class="caret hidden-sm hidden-xs"></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-        <li><a href="{{ route('company.settings') }}"><i class="fa fa-cogs"></i>  Settings</a></li>
+        <li><a href="{{ route('company.settings') }}"><i class="fa fa-cogs"></i> Company Settings</a></li>
         <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
         <li><a href="#"><i class="fa fa-life-ring"></i>  Help</a></li>
         <li class="divider"></li>

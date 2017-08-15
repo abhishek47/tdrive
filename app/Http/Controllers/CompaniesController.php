@@ -48,6 +48,21 @@ class CompaniesController extends Controller
     {
     	auth()->user()->company->update($request->all());
     	flash('Company Details Updated!')->success();
-    	return redirect('home');
+    	return back();
+    }
+
+    public function updateLogo(Request $request)
+    {
+    	$this->validate($request, [
+    		'logo' => ['required', 'image']
+    	]);
+
+    	auth()->user()->company->logo = $request->file('logo')->store('logos', 'public');
+
+    	auth()->user()->company->save();
+    	
+    	flash('Company Logo Updated!')->success();
+    	
+    	return back();
     }
 }
