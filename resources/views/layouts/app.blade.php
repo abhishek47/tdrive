@@ -56,8 +56,11 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>    
 
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+
     <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+     setTimeout(function() {  toastr.clear(); }, 3000);
     </script>
 
     @yield('js')

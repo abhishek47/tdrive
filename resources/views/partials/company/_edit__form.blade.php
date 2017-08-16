@@ -97,6 +97,11 @@
             </div>
 
             <div class="clearfix"></div>
+
+             <div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+                  <button  type="submit" class="btn btn-success" style="width: 100%;">Save Details</button>
+                
+            </div>
          
           
         </form>

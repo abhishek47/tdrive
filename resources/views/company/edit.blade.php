@@ -7,7 +7,7 @@
        <b>{{ auth()->user()->company->name }}</b> <small>Company Settings</small>
     </h4>
     <div class="breadcrumb-right">
-        <button class="btn btn-success" id="update-company">Save Details</button>
+        <button class="btn btn-success hidden-xs"  >Save Details</button>
     </div>
 </div>
 

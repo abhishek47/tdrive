@@ -23,6 +23,11 @@ Route::get('/oauth/handle/{provider}',     ['as' => $s . 'handle',     'uses' =>
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
+Route::post('/profile', 'ProfileController@update')->name('profile.update');
+Route::post('/profile/avatar', 'ProfileController@updateAvatar')->name('profile.avatar');
+Route::post('/profile/password', 'ProfileController@updatePassword')->name('profile.password');
+
 Route::get('/company/register', 'CompaniesController@create')->name('company.create');
 Route::get('/company/settings', 'CompaniesController@edit')->name('company.settings');
 Route::post('/company/update', 'CompaniesController@update')->name('company.update');

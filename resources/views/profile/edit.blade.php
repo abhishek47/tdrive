@@ -4,10 +4,10 @@
  <!--page title and breadcrumb start -->
 <div class="page-head-wrap">
     <h4 class="margin0">
-       <b>Dashboard</b> <small>General Statistics</small>
+       <b>{{ auth()->user()->name }}</b> <small>Profile Settings</small>
     </h4>
     <div class="breadcrumb-right">
-        <button class="btn btn-success" id="update-company" class="hidden-xs">Quick Add</button>
+        <button class="btn btn-success hidden-xs" id="update-profile" >Save Details</button>
     </div>
 </div>
 
@@ -17,9 +17,9 @@
 
 <div style="padding: 15px;">
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8">
   
-    
+    @include('partials.profile._edit__form')
 
   </div>
 </div>
@@ -29,5 +29,16 @@
 
 </div>
 </div>
+
+@endsection
+
+
+@section('js')
+ 
+ <script type="text/javascript">
+     $("#update-profile").click( function() {
+    $('#profile_form').trigger('submit');
+});
+ </script>
 
 @endsection

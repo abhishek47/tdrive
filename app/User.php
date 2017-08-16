@@ -43,5 +43,10 @@ class User extends Authenticatable
             return $this->belongsTo(Company::class);
         }
     }
+
+    public function getAvatarAttribute($avatar)
+    {
+        return isset($avatar) ? asset('/storage/' . $avatar) : asset('imgs/avatar.png');
+    }
     
 }
