@@ -13,9 +13,9 @@
                      <li class="{{ isset($page) ? ($page == 'vehicles' ? 'active' : '') : ''   }}">
                         <a href=""><i class="fa fa-car"></i><span>Vehicles</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="nav nav-sub">
-                            <li class="#"><a href="/vehicles"><span>All Vehicles<small class="label label-success">10</small></span></span></a></li>
-                            <li><a href="#"><span>Add New Vehicle</span></a></li>
-                            <li><a href="#"><span>Track Vehicles<small class="label label-primary">3 In Transit</small></span></a></li>
+                            <li class="#"><a href="{{ route('vehicles') }}"><span>All Vehicles<small class="label label-success">10</small></span></span></a></li>
+                            <li><a href="{{ route('vehicles.create') }}"><span>Add New Vehicle</span></a></li>
+                            <li><a href="{{ route('vehicles') }}"><span>Track Vehicles<small class="label label-primary">3 In Transit</small></span></a></li>
                            
                         </ul>
                     </li>
@@ -29,6 +29,9 @@
                            
                         </ul>
                     </li>
+
+
+                    
 
 
                     <li class="{{ isset($page) ? ($page == 'customers' ? 'active' : '') : ''   }}">

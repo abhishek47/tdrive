@@ -58,6 +58,13 @@
 
     <script src="{{ asset('js/toastr.min.js') }}"></script>
 
+    <script src="{{ asset('js/select2.min.js') }}"></script>
+
+    <!-- Bootstrap Date Range Picker Dependencies -->
+    <script src="{{ asset('js/moment.min.js') }}"></script>
+    <script src="{{ asset('js/daterangepicker.js') }}"></script>
+
+
     <script>
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
      setTimeout(function() {  toastr.clear(); }, 3000);

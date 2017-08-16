@@ -7,7 +7,7 @@
        <b>Vehicles</b> <small>All vehicles</small>
     </h4>
     <div class="breadcrumb-right">
-        <button class="btn btn-success" class="hidden-xs"><i class="fa fa-plus"></i> &nbsp; Add Vehicle</button>
+        <a href="{{ route('vehicles.create') }}" class="btn btn-success hidden-xs" ><i class="fa fa-plus"></i> &nbsp; Add Vehicle</a>
     </div>
 </div>
 
@@ -24,44 +24,26 @@
                 <th>&nbsp; #</th>
                 <th>Name</th>
                 <th>Plate No.</th>
-                <th>Status</th>
+                <th>Task Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
+          @foreach($vehicles as $vehicle)
+            <tr id="vehicle-{{$vehicle->id}}">
                 <td>&nbsp; 1</td>
-                <td>Ciaz</td>
-                <td>MH15FF9444</td>
-                <td><span class="text-success">In Transit</span></td>
+                <td>{{ $vehicle->name }}</td>
+                <td>{{ $vehicle->plate_no }}</td>
+                <td><span class="text-info">None</span></td>
                 <td>
-                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View</a> 
-                    <a href="#" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                    <a href="{{ route('vehicles.show', ['vehicle' => $vehicle->id ]) }}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View</a> 
+                    <a href="{{ route('vehicles.edit', ['vehicle' => $vehicle->id ]) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
+                    <a  href="#" @click="deleteVehicle({{ $vehicle->id  }})" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                 </td>
             </tr>
-             <tr>
-                <td>&nbsp; 1</td>
-                <td>Wagon R</td>
-                <td>MH15DC5825</td>
-                <td><span class="text-danger">Parked</span></td>
-               <td>
-                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View</a> 
-                    <a href="#" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
-                </td>
-            </tr>
-             <tr>
-                <td>&nbsp; 1</td>
-                <td>Vento</td>
-                <td>MH15FT9333</td>
-                <td><span class="text-success">In Transit</span></td>
-                <td>
-                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i> View</a> 
-                    <a href="#" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
-                </td>
-            </tr>
+
+          @endforeach  
+           
            
         </tbody>
     </table>

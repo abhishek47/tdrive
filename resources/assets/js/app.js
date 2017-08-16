@@ -26,6 +26,28 @@ Vue.component('example', require('./components/Example.vue'));
 	const app = new Vue({
 	    el: '#app',
 
+	    methods: {
+	    	deleteVehicle(id)
+	    	{
+	    		var r = confirm("Are you sure, you want to delete the vehicle?");
+				if (r == true) {
+				    axios.delete('/vehicles/' + id, {
+					    id: id,
+					  })
+					  .then(function (response) {
+					  	$('#vehicle-' + id).hide(); 
+					    console.log(response);
+					  })
+					  .catch(function (error) {
+					    console.log(error);
+					  });
+				} else {
+				   
+				}
+	    	}
+
+	    }
+
 	});
 
 

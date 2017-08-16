@@ -35,6 +35,10 @@ Route::post('/company/logo', 'CompaniesController@updateLogo')->name('company.lo
 
 Route::post('/company', 'CompaniesController@store')->name('company.register');
 
-Route::get('/vehicles', function () {
-    return view('vehicles.index');
-});
+Route::get('/vehicles', 'VehiclesController@index')->name('vehicles');
+Route::post('/vehicles', 'VehiclesController@store')->name('vehicles.store');
+Route::get('/vehicles/new', 'VehiclesController@create')->name('vehicles.create');
+Route::get('/vehicles/{vehicle}/edit', 'VehiclesController@edit')->name('vehicles.edit');
+Route::get('/vehicles/{vehicle}', 'VehiclesController@show')->name('vehicles.show');
+Route::post('/vehicles/{vehicle}', 'VehiclesController@update')->name('vehicles.update');
+Route::delete('/vehicles/{vehicle}', 'VehiclesController@destroy')->name('vehicles.delete');

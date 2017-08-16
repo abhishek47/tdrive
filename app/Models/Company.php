@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Vehicles;
 use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
@@ -18,5 +19,11 @@ class Company extends Model
     public function getLogoAttribute($logo)
     {
     	return isset($logo) ? asset('/storage/' . $logo) : asset('imgs/logo-dark.png');
+    }
+
+
+    public function vehicles()
+    {
+    	return $this->hasMany(Vehicle::class);
     }
 }

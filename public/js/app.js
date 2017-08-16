@@ -11066,7 +11066,23 @@ Vue.component('example', __webpack_require__(39));
 //document.addEventListener('turbolinks:load', () => {
 
 var app = new Vue({
-  el: '#app'
+	el: '#app',
+
+	methods: {
+		deleteVehicle: function deleteVehicle(id) {
+			var r = confirm("Are you sure, you want to delete the vehicle?");
+			if (r == true) {
+				axios.delete('/vehicles/' + id, {
+					id: id
+				}).then(function (response) {
+					$('#vehicle-' + id).hide();
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+			} else {}
+		}
+	}
 
 });
 
@@ -46178,7 +46194,7 @@ var Component = __webpack_require__(40)(
   /* moduleIdentifier (server only) */
   null
 )
-Component.options.__file = "/Users/Trumpets/code/tdrive/resources/assets/js/components/Example.vue"
+Component.options.__file = "C:\\wamp64\\www\\tdrive\\resources\\assets\\js\\components\\Example.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
 if (Component.options.functional) {console.error("[vue-loader] Example.vue: functional components are not supported with templates, they should use render functions.")}
 
