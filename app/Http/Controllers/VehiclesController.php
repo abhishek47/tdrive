@@ -110,12 +110,17 @@ class VehiclesController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(Request $request, Vehicle $vehicle)
     {
         $vid = $vehicle->id;
         $vehicle->delete();
 
-        flash("Vehicle #{$vid} was updated successfully")->success();
+        if($request->wantsJson())
+        {
+            return response([], 200);
+        }
+
+        flash("Vehicle #{$vid} was deleted successfully")->success();
 
         return redirect()->route('vehicles');
     }

@@ -32,31 +32,27 @@
             </div>
 
             <div class="form-group col-md-6">
+            <?php $classes = getVehicleClass(); ?>
                 <label for="vehicle_class" class="control-label">Vehicle Class</label>
                   <select class="form-control" id="vehicle_class" name="vehicle_class">
                   <option disabled selected value>-- Select Class --</option>
-                  <option value="0" {{ $vehicle->vehicle_class != 0 ?:'selected' }}>Moped</option>
-                  <option value="1" {{ $vehicle->vehicle_class != 1 ?:'selected' }}>Motorcycle</option>
-                  <option value="2" {{ $vehicle->vehicle_class != 2 ?:'selected' }}>Car</option>
-                  <option value="3" {{ $vehicle->vehicle_class != 3 ?:'selected' }}>Luxury Car</option>
-                  <option value="4" {{ $vehicle->vehicle_class != 4 ?:'selected' }}>Bus</option>
-                  <option value="5" {{ $vehicle->vehicle_class != 5 ?:'selected' }}>Van/Mini-Van</option>
-                  <option value="6" {{ $vehicle->vehicle_class != 6 ?:'selected' }}>Pickup</option>
-                  <option value="7" {{ $vehicle->vehicle_class != 7 ?:'selected' }}>Tempo</option>
-                  <option value="8" {{ $vehicle->vehicle_class != 8 ?:'selected' }}>Truck</option>
-                  
+                  @foreach($classes as $index => $class) 
+                   <option value="{{ $index }}" {{ $vehicle->vehicle_class != $index ?:'selected' }}>{{ $class }}</option>
+                  @endforeach
                   </select>
                     <p class="help-block">What type of vehicle is it?</p>
+               
                 
             </div>
 
             <div class="form-group col-md-6">
+            <?php $fuels = getFuelType(); ?>
                 <label for="plate_no" class="control-label">Fuel Type</label>
                   <select class="form-control" id="fuel_type" name="fuel_type">
                   <option disabled selected value>-- Select Fuel Type --</option>
-                  <option value="0" {{ $vehicle->fuel_type != 0 ?:'selected' }}>Petrol</option>
-                  <option value="1" {{ $vehicle->fuel_type != 1 ?:'selected' }}>Deisel</option>
-                  <option value="2" {{ $vehicle->fuel_type != 2 ?:'selected' }}>CNG</option>
+                   @foreach($fuels as $index => $fuel) 
+                    <option value="{{ $index }}" {{ $vehicle->fuel_type != $index ?:'selected' }}>{{ $fuel }}</option>
+                  @endforeach
                   </select>
                     <p class="help-block">What type of fuel it needs to run?</p>
                 

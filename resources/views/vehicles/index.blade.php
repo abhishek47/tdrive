@@ -18,7 +18,7 @@
 
 
     <div class="table-responsive">
-   <table class="table table-striped table-tdrive" style="margin: 0px;"> 
+   <table class="table table-striped table-hover table-tdrive" style="margin: 0px;"> 
         <thead>
             <tr>
                 <th>&nbsp; #</th>
@@ -30,7 +30,9 @@
         </thead>
         <tbody>
           @foreach($vehicles as $vehicle)
+          
             <tr id="vehicle-{{$vehicle->id}}">
+               
                 <td>&nbsp; 1</td>
                 <td>{{ $vehicle->name }}</td>
                 <td>{{ $vehicle->plate_no }}</td>
@@ -40,6 +42,7 @@
                     <a href="{{ route('vehicles.edit', ['vehicle' => $vehicle->id ]) }}" class="btn btn-info btn-sm"><i class="fa fa-pencil"></i> Edit</a>
                     <a  href="#" @click="deleteVehicle({{ $vehicle->id  }})" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                 </td>
+               
             </tr>
 
           @endforeach  

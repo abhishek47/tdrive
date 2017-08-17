@@ -30,33 +30,29 @@
             </div>
 
             <div class="form-group col-md-6">
+                <?php $classes = getVehicleClass(); ?>
                 <label for="vehicle_class" class="control-label">Vehicle Class</label>
                   <select class="form-control" id="vehicle_class" name="vehicle_class">
                   <option disabled selected value>-- Select Class --</option>
-                  <option value="0">Moped</option>
-                  <option value="1">Motorcycle</option>
-                  <option value="2">Car</option>
-                  <option value="3">Luxury Car</option>
-                  <option value="4">Bus</option>
-                  <option value="5">Van/Mini-Van</option>
-                  <option value="6">Pickup</option>
-                  <option value="7">Tempo</option>
-                  <option value="8">Truck</option>
-                  
+                  @foreach($classes as $index => $class) 
+                   <option value="{{ $index }}">{{ $class }}</option>
+                  @endforeach
                   </select>
                     <p class="help-block">What type of vehicle is it?</p>
                 
             </div>
 
             <div class="form-group col-md-6">
+              <?php $fuels = getFuelType(); ?>
                 <label for="plate_no" class="control-label">Fuel Type</label>
                   <select class="form-control" id="fuel_type" name="fuel_type">
                   <option disabled selected value>-- Select Fuel Type --</option>
-                  <option value="0">Petrol</option>
-                  <option value="1">Deisel</option>
-                  <option value="2">CNG</option>
+                   @foreach($fuels as $index => $fuel) 
+                    <option value="{{ $index }}" >{{ $fuel }}</option>
+                  @endforeach
                   </select>
                     <p class="help-block">What type of fuel it needs to run?</p>
+                
                 
             </div>
 
