@@ -26,4 +26,9 @@ class Company extends Model
     {
     	return $this->hasMany(Vehicle::class);
     }
+
+     public function branches()
+    {
+        return $this->hasMany(Branch::class);
+    }
 }

@@ -34,6 +34,16 @@
 
             <!--main content start-->
             <div id="content" class="ui-content">
+
+               <!--page title and breadcrumb start -->
+                <div class="page-head-wrap">
+                    <h4 class="margin0">
+                       <b>Branch - {{ $branch->name }}</b> 
+                    </h4>
+                    <div class="breadcrumb-right">
+                        <button class="btn btn-success" id="update-company" class="hidden-xs">Quick Add</button>
+                    </div>
+                </div>
                 
 
                  @yield('content')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class VehiclesController extends Controller
@@ -25,11 +26,11 @@ class VehiclesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Branch $branch)
     {
-        $vehicles = auth()->user()->company->vehicles;
+        $vehicles = $branch->vehicles;
         $page = 'vehicles';
-        return view('vehicles.index', compact('page', 'vehicles'));
+        return view('vehicles.index', compact('page', 'vehicles', 'branch'));
     }
 
     /**
@@ -37,10 +38,10 @@ class VehiclesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Branch $branch)
     {
         $page = 'vehicles';
-        return view('vehicles.new', compact('page'));
+        return view('vehicles.new', compact('page', 'branch'));
     }
 
     /**
@@ -57,7 +58,7 @@ class VehiclesController extends Controller
 
         flash('Vehicle was added successfully')->success();
 
-        return redirect()->route('vehicles');
+        return redirect()->route('vehicles', ['branch' => $request->get('branch_id')]);
     }
 
     /**
@@ -66,11 +67,11 @@ class VehiclesController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show(Branch $branch, Vehicle $vehicle )
     {
         $page = 'vehicles';
 
-        return view('vehicles.show', compact('page', 'vehicle'));
+        return view('vehicles.show', compact('page', 'vehicle', 'branch'));
     }
 
     /**
@@ -79,11 +80,11 @@ class VehiclesController extends Controller
      * @param  \App\Models\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit(Branch $branch, Vehicle $vehicle)
     {
         $page = 'vehicles';
 
-        return view('vehicles.edit', compact('page', 'vehicle'));
+        return view('vehicles.edit', compact('page', 'vehicle', 'branch'));
     }
 
     /**
@@ -101,7 +102,7 @@ class VehiclesController extends Controller
 
         flash("Vehicle #{$vehicle->id} was updated successfully")->success();
 
-        return redirect()->route('vehicles.edit', ['vehicle' => $vehicle->id]);
+        return redirect()->route('vehicles.edit', ['vehicle' => $vehicle->id, 'branch' => $vehicle->branch->id]);
     }
 
     /**
@@ -113,6 +114,7 @@ class VehiclesController extends Controller
     public function destroy(Request $request, Vehicle $vehicle)
     {
         $vid = $vehicle->id;
+        $bid = $vehicle->branch->id;
         $vehicle->delete();
 
         if($request->wantsJson())
@@ -122,6 +124,6 @@ class VehiclesController extends Controller
 
         flash("Vehicle #{$vid} was deleted successfully")->success();
 
-        return redirect()->route('vehicles');
+        return redirect()->route('vehicles', ['branch' => $bid]);
     }
 }

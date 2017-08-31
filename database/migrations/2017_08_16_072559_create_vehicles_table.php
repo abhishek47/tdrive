@@ -21,6 +21,7 @@ class CreateVehiclesTable extends Migration
             $table->integer('fuel_type');
             $table->integer('owner_id');
             $table->integer('company_id');
+            $table->integer('branch_id');
             $table->string('chasis_no')->nullable();
             $table->integer('engine_no')->nullable();
             $table->text('date_of_registration')->nullable();

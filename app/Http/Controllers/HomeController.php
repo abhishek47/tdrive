@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,9 +24,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Branch $branch)
     {
-        $page = 'home';
-        return view('home', compact('page'));
+         
+         $page = 'home';
+         return view('home', compact('page', 'branch'));
+
+       
     }
 }

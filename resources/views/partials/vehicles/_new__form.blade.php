@@ -9,6 +9,8 @@
 
             {{ csrf_field() }}
 
+              <input id="branch_id" name="branch_id" type="hidden" value="{{$branch->id}}">
+
 
            <div class="form-group col-md-6">
            

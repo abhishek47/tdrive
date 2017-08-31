@@ -32,8 +32,8 @@ class CompaniesController extends Controller
     public function store(Request $request)
     {
     	auth()->user()->company()->create($request->all());
-    	flash('Company Details Saved!')->success();
-    	return redirect('home');
+    	//flash('Company Details Saved!')->success();
+    	return redirect('branches');
     }
 
 

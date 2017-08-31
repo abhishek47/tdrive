@@ -6,16 +6,16 @@
                     </li>
 
                      <li class="{{ isset($page) ? ($page == 'home' ? 'active' : '') : ''   }}">
-                        <a href="/home"><i class="fa fa-home"></i><span> Dashboard </span></a>
+                        <a href="/branch:{{ $branch->id }}/home"><i class="fa fa-home"></i><span> Dashboard </span></a>
                         
                     </li>
 
                      <li class="{{ isset($page) ? ($page == 'vehicles' ? 'active' : '') : ''   }}">
                         <a href=""><i class="fa fa-car"></i><span>Vehicles</span><i class="fa fa-angle-right pull-right"></i></a>
                         <ul class="nav nav-sub">
-                            <li class="#"><a href="{{ route('vehicles') }}"><span>All Vehicles<small class="label label-success">10</small></span></span></a></li>
-                            <li><a href="{{ route('vehicles.create') }}"><span>Add New Vehicle</span></a></li>
-                            <li><a href="{{ route('vehicles') }}"><span>Track Vehicles<small class="label label-primary">3 In Transit</small></span></a></li>
+                            <li class="#"><a href="{{ route('vehicles', ['branch' => $branch->id]) }}"><span>All Vehicles<small class="label label-success">10</small></span></span></a></li>
+                            <li><a href="{{ route('vehicles.create', ['branch' => $branch->id]) }}"><span>Add New Vehicle</span></a></li>
+                            <li><a href="{{ route('vehicles', ['branch' => $branch->id]) }}"><span>Track Vehicles<small class="label label-primary">3 In Transit</small></span></a></li>
                            
                         </ul>
                     </li>
